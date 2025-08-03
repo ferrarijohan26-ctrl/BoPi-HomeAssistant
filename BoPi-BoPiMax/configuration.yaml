@@ -9,7 +9,7 @@ rest:
     username: "admin"
     password: "password"
     scan_interval: 60
-    resource: http://ADRESSE_IP_DE_VOTRE_BOPI:80/allsensors
+    resource: http://192.168.1.39:80/allsensors
     method: GET
     sensor:
       - name: "BoPi Air Temperature (legacy)"
@@ -67,27 +67,27 @@ rest:
 rest_command:
   # Début de la section des commandes pour contrôler BoPi. Avec les commandes crées ci-dessous, vous pouvez déclencher BoPi depuis HA.
   bopi_pump_on:
-    url: http://ADRESSE_IP_DE_VOTRE_BOPI:80/poolpump
+    url: http://192.168.1.39:80/poolpump
     method: POST
     content_type:  'application/json; charset=utf-8'
     payload: '{"overrideto":1, "deadline":3600}'
   bopi_pump_off:
-    url: http://ADRESSE_IP_DE_VOTRE_BOPI:80/poolpump
+    url: http://192.168.1.39:80/poolpump
     method: POST
     content_type:  'application/json; charset=utf-8'
     payload: '{"overrideto":2, "deadline":3600}'
   bopi_pump_reset_override:
-    url: http://ADRESSE_IP_DE_VOTRE_BOPI:80/poolpump
+    url: http://192.168.1.39:80/poolpump
     method: POST
     content_type:  'application/json; charset=utf-8'
     payload: '{"overrideto":0, "deadline":0}'
   bopi_lights_on:
-    url: http://ADRESSE_IP_DE_VOTRE_BOPI:80/poollights
+    url: http://192.168.1.39:80/poollights
     method: POST
     content_type:  'application/json; charset=utf-8'
     payload: '{"newstatus":1, "deadline":3600}'
   bopi_lights_off:
-    url: http://ADRESSE_IP_DE_VOTRE_BOPI:80/poollights
+    url: http://192.168.1.39:80/poollights
     method: POST
     content_type:  'application/json; charset=utf-8'
     payload: '{"newstatus":0, "deadline":0}'
